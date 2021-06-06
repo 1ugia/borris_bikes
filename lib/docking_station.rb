@@ -1,34 +1,33 @@
-require_relative 'bike' 
+require_relative 'bike'
 
 class DockingStation
-    attr_reader :bike
-#   attribute defines method without writing all down.
-#   reader = allows you to read object
-#   acessor = allows you to amend object
-#  def bike
-#     @bike # returns bike
-#   end
-
-
-
-    # def initialize 
-    # @bikes = []
-    # end
+  attr_reader :bike
+  # def bike
+  #   @bike
+  # end 
+  def initialize
+    @bikes = []
+  end
 
   def release_bike
-    
-    fail 'No bikes available' unless @bike
-    @bike # keeps creating new bikes
-    # Bike.new # now that we want to check that there is
-    # a bike inside, we don't need to create 
-    # new bikes ecery time. so get rid of new bikes.
+    # Bike.new # creates new bike everytime
+    # fail 'No bikes available' unless @bike
+    # @bike
+    # old code for raising error for one capacify and return a bike
+    fail 'No bikes available' if @bikes.empty?
+    @bikes.pop
   end
 
-  def dock_bike(bike)
-    @bike = bike 
+  def dock(bike)
+    # raise 'Docking station full' if @bike
+    # @bike = bike
+    # old code for raising error for one capacify and return a bike
+    fail 'Docking station full' if @bikes.count >= 20
+    @bikes << bike
   end
 
+  def view_bikes
+    @bikes
+  end
+  
 end
-
-# The ability to remember docked bikes ('state')
-# The ability to report docked bikes ('behaviour')
