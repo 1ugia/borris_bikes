@@ -3,6 +3,10 @@
 # For docking_station.rb
 class Bike
   def working?
-    true
+    if true
+      'Yes'
+    else
+      'No'
+    end
   end
 end
