@@ -36,6 +36,10 @@ As a system maintainer,
 So that I can plan the distribution of bikes,
 I want a docking station to have a default capacity of 20 bikes.
 
+As a system maintainer,
+So that busy areas can be served more effectively,
+I want to be able to specify a larger capacity when necessary.
+
 
 ```
 
@@ -43,7 +47,7 @@ I want a docking station to have a default capacity of 20 bikes.
 
 Objects  | Messages
 ------------- | -------------
-Station  | inistialize array, release_bike - raise error if empty, dock(bike) - raise error if full, view_bike, capacity limit of 20
+Station  | inistialize array, release_bike - raise error if empty, dock(bike) - raise error if full, view_bike, capacity limit(with flexibility)
 Bike | working?
 ### Domain Model
 
@@ -51,7 +55,7 @@ Bike | working?
 Bike <-- checks bike working --> true/false
 Station <-- initialize --> adds bikes
 Station <-- checks if bike is empty --> release_bike/raises error
-Station <-- checks if station is full (capacity 20 bikes) --> docks bike/raises error
+Station <-- checks if station is full (requirerd capacity limit) --> docks bike/raises error
 Station <-- view bikes available --> lists bikes docked
 
 ```
